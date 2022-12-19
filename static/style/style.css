@@ -1,0 +1,91 @@
+div#toolbar {
+  display: flex;
+  width: 100%;
+  height: 5em;
+  background-color: lightcoral;
+}
+div#toolbar h1 {
+  flex: 1;
+  text-align: center;
+}
+div#toolbar div {
+  display: flex;
+  flex: 1;
+  height: 100%;
+}
+div#toolbar div img {
+  max-width: 100%;
+  max-height: 100%;
+}
+div#toolbar div#rightIcon {
+  flex-direction: row-reverse;
+}
+
+div#main {
+  display: flex;
+  height: calc(100% - 5em);
+  overflow-y: hidden;
+}
+div#main div#sidebar {
+  display: flex;
+  flex-direction: column;
+  transition: width 0.5s;
+  border-right: 0.05em solid lightgray;
+}
+div#main div#sidebar ul {
+  padding: 0em 0;
+  margin: 0;
+  flex: 1;
+}
+div#main div#sidebar ul a {
+  text-decoration: none;
+  color: black;
+}
+div#main div#sidebar ul a li {
+  padding: 1em 0 1em 0.5em;
+  font-size: 1.5em;
+  margin: 0.2em 0;
+  list-style: none;
+  transition: padding 0.2s 65ms;
+  border-radius: 0 0.5em 0.5em 0;
+  overflow-wrap: break-word;
+}
+div#main div#sidebar ul a li:hover {
+  padding-left: 1.25em;
+}
+div#main div#sidebar ul a li:hover:not(.select) {
+  background-color: lightgray;
+}
+div#main div#sidebar ul a li.select {
+  background-color: lightcoral;
+  border-radius: 0.5em 0 0 0.5em;
+}
+div#main div#sidebar input#create {
+  height: 2em;
+  font-size: 1.5em;
+  border: none;
+  border-radius: 0.5em 0.5em 0 0;
+  background-color: lightcoral;
+  transition: height 0.2s;
+  cursor: pointer;
+}
+div#main div#sidebar input#create:hover {
+  height: 2.5em;
+}
+div#main div#sidebar.close li {
+  overflow-wrap: normal;
+  white-space: nowrap;
+}
+div#main div#document {
+  flex: 5;
+}
+div#main div#document iframe {
+  width: 100%;
+  height: 100%;
+}
+
+div#contextmenu {
+  position: fixed;
+}
+
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,66 @@
+header {
+  width: 100%;
+  height: 5em;
+  background-color: lightcoral;
+}
+
+#content {
+  display: flex;
+  height: calc(90vh - 5em);
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+#content #loginForm {
+  display: flex;
+  width: min(95%, 50vh);
+  padding: 2em 0;
+  font-size: 1.5em;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  border: 0.05em solid lightgray;
+  border-radius: 1em;
+  box-shadow: 0.2em 0.2em 0.4em rgba(0, 0, 0, 0.4);
+}
+#content #loginForm div {
+  width: 80%;
+  margin: 1em 0;
+}
+#content #loginForm div p {
+  width: 100%;
+  margin: 0;
+}
+#content #loginForm div input#address,
+#content #loginForm div input#pass {
+  width: 100%;
+}
+#content #loginForm > p {
+  width: 80%;
+  overflow-wrap: break-word;
+  text-align: center;
+}
+#content #loginForm > input[type=text] {
+  width: 80%;
+  height: 2em;
+  margin: 1em 0;
+}
+#content #loginForm input[type=button] {
+  width: 80%;
+  height: 2em;
+  margin: 1em 0;
+  border: none;
+  border-radius: 0.3em;
+  box-shadow: 0.1em 0.1em 0.1em rgba(0, 0, 0, 0.4);
+  background-color: lightcoral;
+}
+#content #loginForm a {
+  color: black;
+  cursor: pointer;
+}
+#content #loginForm a p {
+  margin: 0em;
+  font-size: large;
+}
+
+/*# sourceMappingURL=login.css.map */

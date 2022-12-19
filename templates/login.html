@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="static/style/normalize.css">
+    <link rel="stylesheet" href="static/style/login.css">
+
+</head>
+
+<body>
+    <header></header>
+    <div id="content">
+        <div id="loginForm">
+            <div>
+                <p>メールアドレス</p>
+                <input type="email" id="address">
+            </div>
+            <div>
+                <p>パスワード</p>
+                <input type="password" id="pass">
+            </div>
+            <input type="button" value="ログイン" id="login">
+            <a href="register">
+                <p>アカウント作成</p>
+            </a>
+        </div>
+
+    </div>
+</body>
+<script>
+    window.onload = () => {
+        document.querySelector("input#login").addEventListener("click", () => {
+            const id = document.querySelector("input#address").value
+            const pass = document.querySelector("input#pass").value
+            let data = {
+                "address": id,
+                "pass": pass
+            }
+            fetch("/login", {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            }).then(res => res.json()).then(data => {
+                console.log(data)
+                if (data["status"]) {
+                    console.log(data)
+                    document.cookie = "token=" + data["token"] + ";max-age=86400";
+                    elm = document.createElement("a")
+                    elm.href = "/"
+                    elm.click()
+                } else {
+                    alert(data["msg"])
+                }
+            }).catch(() => {
+                alert("login failed")
+            })
+        })
+    }
+</script>
+
+</html>

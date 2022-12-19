@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="../static/style/normalize.css">
+    <link rel="stylesheet" href="../static/style/style.css">
+    <script>note_id = "{{note_id}}"</script>
+    <script src="../static/script/script.js"></script>
+
+</head>
+<body>
+    <div id="toolbar">
+        <div id="leftIcon" class="tool">
+            <img src="/static/images/bars_24.svg" id="menu" alt="">
+        </div>
+        <h1 id="title">{{title}}</h1>
+        <div id="rightIcon" class="tool">
+            <img src="/static/images/upload_24.svg" id="upload" alt="">
+            <img src="/static/images/download_24.svg" id="export" alt="">
+        </div>
+    </div>
+    <div id="main">
+        <div id="sidebar">
+            <ul>
+                {% for n in noteArray%}
+                <a href="/note/{{n.id}}" id="{{n.id}}" class="item">
+                    <li>{{n.title}}</li>
+                </a>
+                {% endfor %}
+            </ul>
+            <input type="button" id="create" value="新規ノート">
+        </div>
+
+
+        <div id="document">
+        </div>
+    </div>
+    <div id="contextmenu" class="d-none">
+        <input type="button" id="remove" value="Remove">
+    </div>
+</body>
+</html>

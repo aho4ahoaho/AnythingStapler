@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create First Notebook</title>
+    <link rel="stylesheet" href="static/style/normalize.css">
+    <link rel="stylesheet" href="/static/style/login.css">
+</head>
+
+<body>
+    <header></header>
+    <div id="content">
+        <div id="loginForm">
+            <p>初めてのノートブックを作成しましょう</p>
+            <input type="text" id="title" placeholder="Notebook name" value="New Notebook">
+            <input type="button" id="create" value="作成">
+        </div>
+</body>
+<script>
+    window.onload = () => {
+        document.querySelector("input#create").addEventListener("click", () => {
+            const title = document.querySelector("input#title").value
+            let data = {
+                "title": title
+            }
+            fetch("/create", {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            }).then(res => res.json()).then(data => {
+                console.log(data)
+                if (data["status"]) {
+                    elm = document.createElement("a")
+                    elm.href = "/note/" + data["note_id"]
+                    elm.click()
+                }
+            })
+        })
+    }
+</script>
+
+</html>
